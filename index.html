@@ -168,9 +168,16 @@
 <div style="margin-top:30px;">
   <input id="tema" placeholder="Escribe un tema..." style="padding:12px;border-radius:10px;width:70%;border:none;margin-bottom:10px;" />
   <br>
-  <button onclick="generar()" class="btn btn-primary">Generar Guion</button>
+  <button id="btnGenerar" onclick="generar()" class="btn btn-primary">Generar Guion</button>
 
-  <p id="resultado" style="margin-top:20px;"></p>
+
+<p id="resultado" style="margin-top:20px;"></p>
+
+<br><br>
+
+<button onclick="copiar()" class="btn btn-secondary">Copiar Guion</button>
+<button onclick="limpiar()" class="btn">Limpiar</button>
+
 </div>
 
 <script>
