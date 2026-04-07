@@ -11,30 +11,21 @@ export default async function handler(req, res) {
     }
 
    const guion = `
-Esto fue detectado...
+HOOK:
+Esto fue detectado... y no deberías estar viendo esto.
 
-y no deberías estar viendo esto.
-
+GUION:
 Todo comenzó con ${tema}.
-
-Al principio...
-nadie lo tomó en serio.
-
+Nadie lo tomó en serio.
 Pero algo no estaba bien.
-
-Las imágenes eran extrañas.
-
-Y mientras más investigaban...
-
-más oscuro se volvía todo.
-
-Hasta que alguien desapareció.
-
 Y lo que encontraron después...
-
 no debería existir.
 
-¿Tú qué harías si esto fuera real?
+DESCRIPCIÓN:
+Un caso extraño que sigue dejando preguntas. ¿Tú qué harías si esto fuera real?
+
+HASHTAGS:
+#misterio #viral #curiosidades #shorts #tiktok
 `;
     return res.status(200).json({ resultado: guion });
 
