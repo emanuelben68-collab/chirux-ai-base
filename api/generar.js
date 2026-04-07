@@ -10,7 +10,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ resultado: "Escribe un tema primero." });
     }
 
-   const guion = `
+  const guiones = Array.from({ length: 10 }, (_, i) => `
+GUION ${i + 1}:
+
 HOOK:
 Esto fue detectado... y no deberías estar viendo esto.
 
@@ -26,7 +28,8 @@ Un caso extraño que sigue dejando preguntas. ¿Tú qué harías si esto fuera r
 
 HASHTAGS:
 #misterio #viral #curiosidades #shorts #tiktok
-`;
+`).join("\n\n---------------------\n\n");
+
     return res.status(200).json({ resultado: guion });
 
   } catch (error) {
