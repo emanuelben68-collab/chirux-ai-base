@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ resultado: "Escribe un tema primero." });
     }
 
-  const guiones = Array.from({ length: 10 }, (_, i) => `
+    const guiones = Array.from({ length: 10 }, (_, i) => `
 GUION ${i + 1}:
 
 HOOK:
@@ -30,8 +30,7 @@ HASHTAGS:
 #misterio #viral #curiosidades #shorts #tiktok
 `).join("\n\n---------------------\n\n");
 
-    return res.status(200).json({ resultado: guion });
-
+    return res.status(200).json({ resultado: guiones });
   } catch (error) {
     return res.status(500).json({ resultado: "Error en el servidor" });
   }
