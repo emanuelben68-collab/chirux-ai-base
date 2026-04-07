@@ -150,7 +150,7 @@
     }
   </style>
 </head>
-<body>
+<body>   
   <div class="card">
     <div class="badge">🚀 Proyecto online y funcionando</div>
 
@@ -167,9 +167,16 @@
     </div>
 <div style="margin-top:30px;">
   <input id="tema" placeholder="Escribe un tema..." style="padding:12px;border-radius:10px;width:70%;border:none;margin-bottom:10px;" />
-  <br>
-  <button id="btnGenerar" onclick="generar()" class="btn btn-primary">Generar Guion</button>
+  
+  <br><br>
 
+<button onclick="generar('misterio')" class="btn btn-primary">Misterio</button>
+<button onclick="generar('peligro')" class="btn btn-secondary">Peligro</button>
+<button onclick="generar('curiosidad')" class="btn">Curiosidad</button>
+
+<button onclick="generar('viral')" class="btn btn-primary">
+🔥 GUION VIRAL
+</button>
 
 <p id="resultado" style="margin-top:20px;"></p>
 
@@ -181,15 +188,16 @@
 </div>
 
 <script>
-async function generar() {
+async function generar(tipo) {
   const tema = document.getElementById("tema").value;
+const promptFinal = tipo ? tema + " estilo " + tipo : tema;
 
   const res = await fetch("/api/generar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ tema })
+   body: JSON.stringify({ tema: promptFinal })
   });
 
   const data = await res.json();
@@ -207,12 +215,8 @@ function copiar() {
   }
 
   navigator.clipboard.writeText(texto)
-    .then(() => {
-      alert("Guion copiado 🔥");
-    })
-    .catch(() => {
-      alert("No se pudo copiar");
-    });
+    .then(() => alert("Guion copiado 🔥"))
+    .catch(() => alert("No se pudo copiar"));
 }
 
 function limpiar() {
@@ -238,7 +242,7 @@ function limpiar() {
     </div>
 
     <div class="footer">
-      Hecho por Emanuel Benitez • Chirux AI
+      Hecho por Emanuel Arista • Chirux AI
     </div>
   </div>
 </body>
