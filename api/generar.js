@@ -1,39 +1,23 @@
-import OpenAI from "openai";
-
 export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ resultado: "Método no permitido" });
+  }
+
   try {
-    const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY
-    });
+    const { tema } = req.body || {};
 
-    const { tema, duracion, estilo, plataforma } = req.body;
+    if (!tema) {
+      return res.status(400).json({ resultado: "Escribe un tema primero." });
+    }
 
-    const prompt = `
-Crea contenido viral para ${plataforma}.
+    const guion = `Gancho: Esto que te voy a contar sobre ${tema} parece inventado… pero podría volverse viral.
 
-Tema: ${tema}
-Duración: ${duracion}
-Estilo: ${estilo}
+Desarrollo: Primero muestras una imagen fuerte, luego explicas el misterio o dato más impactante sobre ${tema}, y después aumentas la tensión con una pregunta que deje pensando.
 
-Devuelve:
-- Título
-- Gancho
-- Guion
-- Descripción
-- Hashtags
-`;
+Cierre: ¿Te gustaría que te haga una versión más intensa para TikTok o Shorts?`;
 
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt }],
-    });
-
-    res.status(200).json({
-      resultado: completion.choices[0].message.content,
-    });
-
+    return res.status(200).json({ resultado: guion });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Error generando contenido" });
+    return res.status(500).json({ resultado: "Hubo un error generando el guion." });
   }
 }
