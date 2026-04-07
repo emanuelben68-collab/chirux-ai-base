@@ -190,7 +190,11 @@
 <script>
 async function generar(tipo) {
   const tema = document.getElementById("tema").value;
-const promptFinal = tipo ? tema + " estilo " + tipo : tema;
+const promptFinal = tipo === "viral"
+  ? tema + " con un tono extremadamente impactante, misterioso y adictivo"
+  : tipo
+  ? tema + " con enfoque de " + tipo
+  : tema;
 
   const res = await fetch("/api/generar", {
     method: "POST",
