@@ -1,10 +1,191 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chirux AI</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 820px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 40px 28px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      color: #ddd6fe;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #d1d5db;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #8b5cf6;
+      color: white;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #7c3aed;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .feature h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 760px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>🚀 Ya funciona!</h1>
-  <p>Tu proyecto está en línea 🔥</p>
+  <div class="card">
+    <div class="badge">🚀 Proyecto online y funcionando</div>
+
+    <h1>Chirux AI</h1>
+
+    <p>
+      Tu proyecto ya está en línea. Ahora vamos a convertirlo en una app más profesional,
+      moderna y lista para crecer con funciones reales.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="/api/generar" target="_blank">Probar API</a>
+      <a class="btn btn-secondary" href="https://github.com/emanuelben68-collab/chirux-ai-base" target="_blank">Ver repositorio</a>
+    </div>
+
+    <div class="grid">
+      <div class="feature">
+        <h3>⚡ Rápida</h3>
+        <p>Tu proyecto ya despliega en Vercel y está listo para recibir mejoras sin volver a empezar.</p>
+      </div>
+
+      <div class="feature">
+        <h3>🎨 Moderna</h3>
+        <p>Diseño oscuro, limpio y más profesional para que se vea mejor desde el primer vistazo.</p>
+      </div>
+
+      <div class="feature">
+        <h3>🤖 Escalable</h3>
+        <p>La base ya está lista para agregar IA, formularios, botones, prompts o herramientas virales.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Hecho por Emanuel Benitez • Chirux AI
+    </div>
+  </div>
 </body>
 </html>
