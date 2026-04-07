@@ -165,7 +165,30 @@
       <a class="btn btn-primary" href="/api/generar" target="_blank">Probar API</a>
       <a class="btn btn-secondary" href="https://github.com/emanuelben68-collab/chirux-ai-base" target="_blank">Ver repositorio</a>
     </div>
+<div style="margin-top:30px;">
+  <input id="tema" placeholder="Escribe un tema..." style="padding:12px;border-radius:10px;width:70%;border:none;margin-bottom:10px;" />
+  <br>
+  <button onclick="generar()" class="btn btn-primary">Generar Guion</button>
 
+  <p id="resultado" style="margin-top:20px;"></p>
+</div>
+
+<script>
+async function generar() {
+  const tema = document.getElementById("tema").value;
+
+  const res = await fetch("/api/generar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ tema })
+  });
+
+  const data = await res.json();
+  document.getElementById("resultado").innerText = data.resultado;
+}
+</script>
     <div class="grid">
       <div class="feature">
         <h3>⚡ Rápida</h3>
