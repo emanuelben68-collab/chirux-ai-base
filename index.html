@@ -193,7 +193,31 @@ async function generar() {
   });
 
   const data = await res.json();
-  document.getElementById("resultado").innerHTML = data.resultado.replace(/\n/g, "<br><br>");
+
+  document.getElementById("resultado").innerHTML =
+    data.resultado.replace(/\n/g, "<br><br>");
+}
+
+function copiar() {
+  const texto = document.getElementById("resultado").innerText;
+
+  if (!texto.trim()) {
+    alert("Primero genera un guion");
+    return;
+  }
+
+  navigator.clipboard.writeText(texto)
+    .then(() => {
+      alert("Guion copiado 🔥");
+    })
+    .catch(() => {
+      alert("No se pudo copiar");
+    });
+}
+
+function limpiar() {
+  document.getElementById("tema").value = "";
+  document.getElementById("resultado").innerHTML = "";
 }
 </script>
     <div class="grid">
