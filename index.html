@@ -186,7 +186,7 @@ async function generar() {
   });
 
   const data = await res.json();
-  document.getElementById("resultado").innerHTML = data.resultado.replace(/\n/g, "<br>");
+  document.getElementById("resultado").innerHTML = data.resultado.replace(/\n/g, "<br><br>");
 }
 </script>
     <div class="grid">
