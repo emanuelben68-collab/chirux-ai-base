@@ -4,37 +4,102 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { tema } = req.body;
+   const { tema, categoria, estilo } = req.body;
 
     if (!tema) {
       return res.status(400).json({ resultado: "Escribe un tema primero." });
     }
+const contexto = `Tema: ${tema}
+Categoría: ${categoria}
+Estilo: ${estilo}`;
+    let hooks = [];
 
-    const hooks = [
-  "Esto no debía ser visto...",
-  "Alguien filtró esto… y luego desapareció.",
-  "Esto fue encontrado… y nadie lo explicó.",
-  "Lo grabaron… pero no debían hacerlo.",
-  "Esto apareció de la nada.",
-  "Nadie sabe quién lo dejó ahí.",
-  "Esto estuvo oculto durante años.",
-  "Lo encontraron… pero era demasiado tarde.",
-  "Esto no es normal…",
-  "Si ves esto completo… ya es tarde."
-];
+if (categoria === "misterio") {
+  hooks = [
+    "Esto no debía ser visto...",
+    "Alguien filtró esto... y luego desapareció.",
+    "Esto fue encontrado... y nadie lo explicó."
+  ];
+} 
 
-const desarrollos = [
-  "Todo comenzó con ${tema}. Nadie sospechaba nada.",
-  "Al principio parecía normal… pero algo cambió.",
-  "Todo empezó como un simple descubrimiento.",
-  "No parecía peligroso… hasta que lo fue.",
-  "Todo era tranquilo… hasta ese momento.",
-  "Nadie imaginaba lo que venía después.",
-  "Parecía insignificante… pero no lo era.",
-  "Todo comenzó sin explicación.",
-  "Nadie prestó atención al inicio.",
-  "Todo parecía bajo control… al principio."
-];
+else if (categoria === "gaming") {
+  hooks = [
+    "Esto pasó dentro del juego… pero no debería existir.",
+    "Un jugador encontró esto… y el juego cambió.",
+    "Esto no es un bug… es algo más."
+  ];
+}
+
+else if (categoria === "comida") {
+  hooks = [
+    "Esto parece normal… pero puede ser peligroso.",
+    "Lo comes todos los días… pero nadie te dijo esto.",
+    "Esto está en tu comida… y no lo sabías."
+  ];
+}
+
+else if (categoria === "motivacion") {
+  hooks = [
+    "Esto puede cambiar tu vida en segundos.",
+    "Nadie te dice esto… pero es la verdad.",
+    "Si haces esto… todo cambia."
+  ];
+}
+
+else {
+  hooks = [
+    "Esto no es normal...",
+    "Algo extraño está pasando...",
+    "Nadie esperaba esto..."
+  ];
+}
+
+let desarrollos = [];
+
+if (estilo === "viral") {
+  desarrollos = [
+    `Todo comenzó con ${tema}. Nadie sospechaba nada.`,
+    `Pero algo no estaba bien.`,
+    `Y lo que encontraron después…`,
+    `cambió todo.`
+  ];
+}
+
+else if (estilo === "oscuro") {
+  desarrollos = [
+    `Todo comenzó con ${tema}… pero algo se sentía mal.`,
+    `El ambiente era pesado.`,
+    `Nadie podía explicarlo.`,
+    `Y lo que vino después… no debía existir.`
+  ];
+}
+
+else if (estilo === "documental") {
+  desarrollos = [
+    `El caso de ${tema} ha generado múltiples teorías.`,
+    `Expertos han intentado explicarlo.`,
+    `Sin embargo, hay inconsistencias.`,
+    `Y hasta hoy… sigue sin resolverse.`
+  ];
+}
+
+else if (estilo === "emocional") {
+  desarrollos = [
+    `Todo comenzó con ${tema}… y nadie imaginaba lo que venía.`,
+    `Las emociones comenzaron a cambiar.`,
+    `Todo se volvió intenso.`,
+    `Y nada volvió a ser igual.`
+  ];
+}
+
+else {
+  desarrollos = [
+    `Todo comenzó con ${tema}.`,
+    `Algo extraño pasó.`,
+    `Nadie lo esperaba.`,
+    `Y todo cambió.`
+  ];
+}
 
 const giros = [
   "Las imágenes no coincidían.",

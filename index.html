@@ -170,6 +170,31 @@
   
   <br><br>
 
+<label>Categoría:</label>
+<select id="categoria">
+  <option value="misterio">Misterio</option>
+  <option value="terror">Terror</option>
+  <option value="curiosidad">Curiosidad</option>
+  <option value="gaming">Gaming</option>
+  <option value="comida">Comida</option>
+  <option value="motivacion">Motivación</option>
+  <option value="historia">Historia</option>
+  <option value="ciencia">Ciencia</option>
+</select>
+
+<br><br>
+
+<label>Estilo:</label>
+<select id="estilo">
+  <option value="viral">Viral</option>
+  <option value="cinematografico">Cinematográfico</option>
+  <option value="oscuro">Oscuro</option>
+  <option value="documental">Documental</option>
+  <option value="emocional">Emocional</option>
+</select>
+
+<br><br>
+
 <button onclick="generar('misterio')" class="btn btn-primary">Misterio</button>
 <button onclick="generar('peligro')" class="btn btn-secondary">Peligro</button>
 <button onclick="generar('curiosidad')" class="btn">Curiosidad</button>
@@ -190,11 +215,10 @@
 <script>
 async function generar(tipo) {
   const tema = document.getElementById("tema").value;
-const promptFinal = tipo === "viral"
-  ? tema + " con un tono extremadamente impactante, misterioso y adictivo"
-  : tipo
-  ? tema + " con enfoque de " + tipo
-  : tema;
+const categoria = document.getElementById("categoria").value;
+const estilo = document.getElementById("estilo").value;
+
+let promptFinal = `${tema} con estilo ${estilo} y enfoque de ${categoria}`;
 
   const res = await fetch("/api/generar", {
     method: "POST",
